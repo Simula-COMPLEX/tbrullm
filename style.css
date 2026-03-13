@@ -1,0 +1,403 @@
+/* --- CSS Variables & Reset --- */
+:root {
+    --primary-blue: #00A8E8; /* Vibrant Sky Blue */
+    --secondary-blue: #007EA7; /* Deep Sky Blue */
+    --dark-blue: #003459; /* Text/Heading Blue */
+    --light-bg: #F0F8FF; /* Alice Blue - very light background */
+    --white: #FFFFFF;
+    --text-gray: #555555;
+    --shadow: 0 10px 30px rgba(0, 168, 232, 0.15);
+    --gradient: linear-gradient(135deg, rgba(0, 168, 232, 0.85), rgba(0, 126, 167, 0.85));
+    --timeline-color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-gray);
+    background-color: var(--light-bg);
+}
+
+/* --- Typography & Utilities --- */
+h1, h2, h3 {
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+h2 { font-size: 2rem; margin-bottom: 2rem; text-align: center; }
+h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+p { margin-bottom: 1rem; }
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.primary-btn {
+    background: var(--white);
+    color: var(--primary-blue);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* --- Navigation --- */
+.navbar {
+    background: var(--white);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-blue);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* --- Hero Section --- */
+.hero {
+    color: var(--white);
+    padding: 10rem 0 8rem;
+    text-align: center;
+    position: relative;
+    /* REPLACE THE URL BELOW WITH YOUR ACTUAL IMAGE PATH */
+    background-image:
+        var(--gradient),
+        url('images/header-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom-left-radius: 50% 5%;
+    border-bottom-right-radius: 50% 5%;
+}
+
+.hero h1 {
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.conference-details {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* --- Main Content & Sections --- */
+.main-wrapper {
+    padding: 4rem 0;
+}
+
+.section {
+    margin-bottom: 5rem;
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: 3px;
+}
+
+/* --- Cards & Grids --- */
+.card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+}
+
+/* --- Learning Objectives (Highlighted Style) --- */
+.objectives-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .objectives-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 992px) {
+    .objectives-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.objective-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 168, 232, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.objective-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 168, 232, 0.2);
+    border-bottom-color: var(--primary-blue);
+}
+
+.objective-icon {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    display: inline-block;
+    background: rgba(0, 168, 232, 0.05);
+    padding: 1rem;
+    border-radius: 50%;
+}
+
+.objective-card p {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* --- Timeline Section --- */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 3px solid var(--timeline-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.6rem;
+    top: 0.3rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: var(--white);
+    border: 3px solid var(--primary-blue);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-time {
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    background: rgba(0, 168, 232, 0.1);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: var(--dark-blue);
+}
+
+.timeline-content p {
+    margin-bottom: 0;
+}
+
+/* --- Bios Section Specifics (Links) --- */
+.bio-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.bio-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-blue);
+    flex-shrink: 0;
+}
+
+.bio-card h3 { color: var(--primary-blue); margin-top: 0; }
+.affiliation {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--secondary-blue);
+    margin-bottom: 1rem;
+}
+
+.bio-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.bio-links a {
+    color: var(--secondary-blue);
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.bio-links a:hover {
+    color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+/* --- Research Section Specifics (Image Fit) --- */
+.research-item {
+    margin-bottom: 3rem;
+}
+
+.research-content h3 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.research-img-big {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 1.5rem 0;
+    display: block;
+}
+
+.publication-ref {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 0.95rem;
+    color: var(--secondary-blue);
+    background: rgba(0, 126, 167, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* --- Footer (Copyright) --- */
+.footer {
+    background: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 0rem;
+}
+
+.footer p { margin-bottom: 0.5rem; opacity: 0.8; }
+.tiny-text { font-size: 0.8rem; opacity: 0.6; }
+.copyright-text {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    opacity: 1;
+}
+
+/* --- Animations --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Mobile Responsiveness Tweaks --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2rem; }
+    .hero { padding: 6rem 0 4rem; }
+    .card { padding: 1.5rem; }
+
+    .bio-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .bio-img { margin-bottom: 1rem; }
+    .bio-links { justify-content: center; }
+
+    .timeline { padding-left: 1.5rem; }
+    .timeline-item::before { left: -2.1rem; }
+    
+    .objectives-grid { grid-template-columns: 1fr; }
+}

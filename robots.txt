@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://simula-complex.github.io/tbrullm/sitemap.xml
